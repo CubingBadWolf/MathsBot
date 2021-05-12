@@ -40,7 +40,7 @@ Client.on('message', message =>{
         if(command === "quadratic"){
             const mode = args[0]
 
-            if(mode === "solver"){
+            if(mode === "solver"||"solve"){
                 let Root1, Root2
                 const ValA = args[1]
                 const ValB = args[2]
@@ -62,7 +62,7 @@ Client.on('message', message =>{
                     message.channel.send(`The roots of quadratic equation are ${RealRoot} + ${ImagRoot}i and ${RealRoot} - ${ImagRoot}i`)
                 }
             }  
-            else if(mode === "factorise"){
+            else if(mode === "factorise"||"factoriser"){
                 message.channel.send("Factoriser is currently unavalable")
             }
             else if(args[0] !== "solver" || "factorise"){
