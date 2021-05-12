@@ -2,6 +2,8 @@ const Discord = require('discord.js');
 
 const Client = new Discord.Client();
 
+const config = require('./config.json')
+
 const letter = 'n'; const Letter = 'N'; const censor = '"'
 
 const prefix = '='
@@ -70,4 +72,4 @@ Client.on('message', message =>{
         }   
     }
 })
-Client.login("ODQxOTM3MDc5NzI2MTEyODE5.YJuBAg.1h45CFSCv3ClRR17yPnvXJVgUlU")
+Client.login(config.token)
