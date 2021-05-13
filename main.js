@@ -4,8 +4,6 @@ const Client = new Discord.Client();
 
 const config = require('./config.json')
 
-const letter = 'n'; const Letter = 'N'; const censor = '"'
-
 const prefix = '='
 
 const HelpEmbed = new Discord.MessageEmbed()
@@ -43,10 +41,10 @@ Client.on('message', message =>{
             const ValA = args[1]
             const ValB = args[2]
             const ValC = args[3]
+            const discriminant = ValB * ValB - 4 * ValA * ValC
 
             if(mode === "solver"||"solve"){
 
-                let discriminant = ValB * ValB - 4 * ValA * ValC
                 if(discriminant > 0){
                     Root1 = (-ValB + Math.sqrt(discriminant)) / (2 * ValA)
                     Root2 = (-ValB - Math.sqrt(discriminant)) / (2 * ValA)
@@ -72,7 +70,7 @@ Client.on('message', message =>{
                     message.channel.send("Factoriser is currently unavalable for values of a that is not 1")
                 }
             }
-            else if(args[0] !== "solver" || "factorise"){
+            else if(args[0] !== "solver" || "factorise" || "factoriser" || "solver"){
                 message.channel.send("Please specify solver or factoriser")
             }
 
