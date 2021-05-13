@@ -42,7 +42,7 @@ Client.on('message', message =>{
             const ValB = args[2]
             const ValC = args[3]
             const discriminant = ValB * ValB - 4 * ValA * ValC
-
+            message.channel.send(mode)
             if(mode === "solver"||"solve"){
 
                 if(discriminant > 0){
