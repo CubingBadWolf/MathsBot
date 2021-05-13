@@ -2,8 +2,6 @@ const Discord = require('discord.js');
 
 const Client = new Discord.Client();
 
-const config = require('./config.json')
-
 const prefix = '='
 
 const HelpEmbed = new Discord.MessageEmbed()
@@ -42,7 +40,9 @@ Client.on('message', message =>{
             const ValB = args[2]
             const ValC = args[3]
             const discriminant = ValB * ValB - 4 * ValA * ValC
-            message.channel.send(mode)
+
+           // message.channel.send(mode)
+
             if(mode === "solver"||"solve"){
 
                 if(discriminant > 0){
@@ -77,4 +77,4 @@ Client.on('message', message =>{
         }   
     }
 })
-Client.login(config.token)
+Client.login(process.env.DJS_TOKEN)
