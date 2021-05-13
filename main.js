@@ -39,22 +39,22 @@ Client.on('message', message =>{
         }
         if(command === "quadratic"){
             const mode = args[0]
+            let Root1, Root2
+            const ValA = args[1]
+            const ValB = args[2]
+            const ValC = args[3]
 
             if(mode === "solver"||"solve"){
-                let Root1, Root2
-                const ValA = args[1]
-                const ValB = args[2]
-                const ValC = args[3]
 
                 let discriminant = ValB * ValB - 4 * ValA * ValC
                 if(discriminant > 0){
                     Root1 = (-ValB + Math.sqrt(discriminant)) / (2 * ValA)
                     Root2 = (-ValB - Math.sqrt(discriminant)) / (2 * ValA)
-                    message.channel.send("The two solutions are " + Root1 + " and " + Root2)
+                    message.channel.send(`The two solutions are ${Root1} and ${Root2}`)
                 } 
                 else if(discriminant === 0){
                     Root1 = Root2 = -ValB / (2 * ValA)
-                    message.channel.send("The two solutions are " + Root1 + " and " + Root2)
+                    message.channel.send(`The two solutions are ${Root1} and ${Root2}`)
                 }
                 else if(discriminant < 0){
                     let RealRoot = (-ValB / (2 * ValA)).toFixed(3);
@@ -63,7 +63,14 @@ Client.on('message', message =>{
                 }
             }  
             else if(mode === "factorise"||"factoriser"){
-                message.channel.send("Factoriser is currently unavalable")
+                if(ValA = 1){
+                    Root1 = (-ValB + Math.sqrt(discriminant)) / (2 * ValA)
+                    Root2 = (-ValB - Math.sqrt(discriminant)) / (2 * ValA)
+                    message.channel.send(`This quadratic factorised is (x - ${Root1})(x - ${Root2})`)
+                }
+                else{
+                    message.channel.send("Factoriser is currently unavalable for values of a that is not 1")
+                }
             }
             else if(args[0] !== "solver" || "factorise"){
                 message.channel.send("Please specify solver or factoriser")
