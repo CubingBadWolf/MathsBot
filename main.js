@@ -60,7 +60,7 @@ Client.on('message', message =>{
                     message.channel.send(`The roots of quadratic equation are ${RealRoot} + ${ImagRoot}i and ${RealRoot} - ${ImagRoot}i`);
                 }
             } else if(mode === "factorise"||"factoriser"){
-                if(ValA = 1){
+                if(ValA == 1){
                     Root1 = (-ValB + Math.sqrt(discriminant)) / (2 * ValA);
                     Root2 = (-ValB - Math.sqrt(discriminant)) / (2 * ValA);
                     message.channel.send(`This quadratic factorised is (x - ${Root1})(x - ${Root2})`);
@@ -68,7 +68,7 @@ Client.on('message', message =>{
                 else{
                     message.channel.send("Factoriser is currently unavalable for values of a that is not 1");
                 }
-            } else if(args[0] !== "solver" || "factorise" || "factoriser" || "solver"){
+            } else {
                 message.channel.send("Please specify solver or factoriser");
             }
 
